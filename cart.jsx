@@ -144,21 +144,11 @@ const Products = (props) => {
     
     return (
       <li key={index}>
-      {/* <tbody key={index}>
-        <tr>
-        <td>  */}
         <Image src={url} roundedCircle></Image> 
-        {/* </td>
-        <td>  */}
-        <Button variant="primary" size="large">
+        <Button variant="primary" size="lg">
           {item.name}:{Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(item.cost)}-Stock={item.instock}
         </Button> 
-        {/* </td>
-        <td> */}
         <input name={item.name} type="submit" onClick={addToCart}></input>
-        {/* </td>
-        </tr>
-      </tbody> */}
       </li>
     );
   });
@@ -175,7 +165,10 @@ const Products = (props) => {
           eventKey={1 + index}
         >
           <Card.Body>
-            $ {item.cost} from {item.country} (Click here to delete)
+            $ {item.cost} from {item.country} <br/>
+            <span type ="button" className="btn btn-outline-primary">
+            Delete 
+            </span>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -236,7 +229,6 @@ const Products = (props) => {
         <Col>
           <h1>Product List</h1>
           <ul style={{ listStyleType: "none" }}>{list}</ul>
-          {/* <table> {list} </table> */}
         </Col>
         <Col>
           <h1>Cart Contents</h1>
